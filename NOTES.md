@@ -25,6 +25,10 @@ npm install --legacy-peer-deps
 ## Typescript
 *Use zod to create a validator that will be used not only in form, but also imported to the actual type used across the app. This is crucial practice to not repeat code and have robust app.*
 
+## React
+useTransition - Perform non-blocking updates with Actions. Call useTransition at the top of your component to create Actions, and access the pending state. For loaders.
+
+
 ## Next.js
 
 ### Structure
@@ -39,6 +43,8 @@ import { notFound } from 'next/navigation'
 if (!product) notFound();
 ```
 
+**revalidatePath** - function to call to "refresh" current page after doing actions like saving to database.
+
 ## Authentication
 *We are using auth.js(next auth) - it was originally created for the next.js, later it was broadened to other frameworks*
 It is very opinionated and high-level, I set config and it works.
@@ -49,6 +55,8 @@ It is very opinionated and high-level, I set config and it works.
 > - [auth.js with prisma](https://authjs.dev/getting-started/adapters/prisma)
 
 In next.js 15 to get searchParams or params you have to define them in the props - in "server" components and useSearchParams hook in "client" components.
+
+
 
 ## Deployment 
 > **_IMPORTANT:_** It is a good idea to go through all the versions and update them before deployment and development of the target application.
@@ -61,3 +69,10 @@ Commands to run every time after updating schema.prisma
 npx prisma generate
 npx prisma migrate dev --name add_user_based_tables
 ```
+
+
+## Development style
+The style here is pretty easy:
+zod schemas for inserts -> infer to create a type -> create action(save to database) -> create page and component(for client side code) -> link to action
+
+We have the cartId in the session to set it so user have the cart from anonymous browsing also after login.
