@@ -3,6 +3,8 @@
 [Forked Code](https://github.com/kamilszczepanik/prostore/tree/main)
 [Readme of the project](README.md)
 
+*Lots of useful code here to use across different projects*
+
 
 ## Useful Libraries
 - Shadcn UI(install components one by one, not whole library at once - smaller size)
@@ -54,8 +56,7 @@ It is very opinionated and high-level, I set config and it works.
 > - [auth.js getting started](https://authjs.dev/getting-started)
 > - [auth.js with prisma](https://authjs.dev/getting-started/adapters/prisma)
 
-In next.js 15 to get searchParams or params you have to define them in the props - in "server" components and useSearchParams hook in "client" components.
-
+In **next.js 15** to get searchParams or params you have to define them in the props - in "**server**" components and useSearchParams hook in "**client**" components.
 
 
 ## Deployment 
@@ -76,3 +77,17 @@ The style here is pretty easy:
 zod schemas for inserts -> infer to create a type -> create action(save to database) -> create page and component(for client side code) -> link to action
 
 We have the cartId in the session to set it so user have the cart from anonymous browsing also after login.
+
+Admin is added in the session via auth.ts, then to make it type safety, we need to declare it in the `types/next-auth.d.ts`
+
+### Image upload
+Use **uploadthing** - efficient uploading with storage.
+docs for next.js implementation https://docs.uploadthing.com/getting-started/appdir
+
+Put link to the uploaded images in database.
+
+**embla-carousel-autoplay** - Embla Carousel is a bare bones carousel library with great fluid motion and awesome swipe precision. It's library agnostic, dependency free and 100% open source.
+
+
+
+# In case of error while deployment - watch last videos
