@@ -91,3 +91,22 @@ Put link to the uploaded images in database.
 
 
 # In case of error while deployment - watch last videos
+
+
+### Stripe
+1. Create a payment intent
+2. Confirm payment on client
+3. Check payment status
+4. Handle success/failure
+
+**Webhook** - way for a service to notify another service when something happened
+
+### Emails
+Resend + https://react.email/
+To preview email, I can use CLI!!! - To do that I need to create **email** script in `package.json`:
+`"email": "cp .env ./node_modules/react-email && email dev --dir email --port 3001"`
+
+I can use mock data to preview email:
+`PurchaseReceiptEmail.PreviewProps`
+
+I have to use `require('dotenv').config();` in email service if I want to use environment variable like that: `process.env.RESEND_API_KEY`, because email service is not next.js environment. Look up folder structure.
